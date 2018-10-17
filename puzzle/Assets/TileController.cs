@@ -8,8 +8,8 @@ namespace Puzzle.Game
         public Image[] imagePiecesHolders;
         public Sprite[] imagePieces;
 
-        private Transform firstTileTransform = null;
-        private Transform secondTileTransform = null;
+        private Image firstTile = null;
+        private Image secondTile = null;
 
         private void Awake()
         {
@@ -23,29 +23,33 @@ namespace Puzzle.Game
 
         public void OnTileClicked(TileClickDetector tileClicked)
         {
-            if (firstTileTransform == null)
+            if (firstTile == null)
             {
-                firstTileTransform = tileClicked.transform;
+                firstTile = tileClicked.GetComponent<Image>();
             }
             else
             {
-                secondTileTransform = tileClicked.transform;
+                secondTile = tileClicked.GetComponent<Image>();
                 SwapTiles();
+                if (CheckVictoryCondition() == true)
+                {
+                    print("Victory");
+                }
             }
         }
 
         private void SwapTiles()
         {
-            Vector2 temp = firstTileTransform.position;
-            firstTileTransform.position = secondTileTransform.position;
-            secondTileTransform.position = temp;
+            Sprite tmp = firstTile.sprite;
+            firstTile.sprite = secondTile.sprite;
+            secondTile.sprite = tmp;
             CleanReferences();
         }
 
         private void CleanReferences()
         {
-            firstTileTransform = null;
-            secondTileTransform = null;
+            firstTile = null;
+            secondTile = null;
         }
 
         private int[] CreateShuffleMask()
@@ -62,6 +66,18 @@ namespace Puzzle.Game
             }
 
             return shuffleMask;
+        }
+
+        private bool CheckVictoryCondition()
+        {
+            for (int i = 0; i < imagePiecesHolders.Length; i++)
+            {
+                if (imagePiecesHolders[i].sprite.name != i.ToString())
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

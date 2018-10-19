@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6b390c7292e164da60e6ea4d8718cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imagePiecesHolders:
+  Tiles:
   - {fileID: 759157132}
   - {fileID: 297703899}
   - {fileID: 204013932}
@@ -559,7 +559,7 @@ MonoBehaviour:
   - {fileID: 2031978560}
   - {fileID: 1687014494}
   - {fileID: 2114530708}
-  imagePieces:
+  ImagePieces:
   - {fileID: 21300000, guid: a3fbfab32677ba343aaeabdbec5ff525, type: 3}
   - {fileID: 21300000, guid: 33f13131d2f5c124db6d0c38438453e1, type: 3}
   - {fileID: 21300000, guid: a48c03575d7938043a9b87764663f732, type: 3}

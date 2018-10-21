@@ -7,12 +7,13 @@ namespace Puzzle.Game
 {
     public class TileController : MonoBehaviour
     {
-        public Image[] Tiles;
-        public Sprite[] ImagePieces;
+        [SerializeField] private Image[] tiles;
+
         public Action VictoryHappened;
 
         private Image firstTile = null;
         private Image secondTile = null;
+        private Sprite[] currentGameImageSlices = null;
 
         private const int TILES_NUMBER = 9;
 
@@ -55,16 +56,16 @@ namespace Puzzle.Game
         private void PrepareGameField()
         {
             /* На тайлы сразу же устанавливается перемешанное изображение, поэтому установка кусков
-             * изображений идёт по маске перемешивания.
+             * изображений идёт по маске перемешивания, которую мы далее создаём.
              */
-           
             int[] shuffleMask = CreateShuffleMask(TILES_NUMBER);
-            FillTilesWithImagePieces(shuffleMask);
-
             /* Что такое маска перемешивания?
              * К примеру, маска перемешивания получилась { 3, 7, 2, 4, 1, 5, 6, 8, 0 }. Это значит, что 
              * сначала нужно взять изображение под номером 3, затем под номером 7, затем под номером 2 и т.д.
              */
+
+            SelectImageSlicesForGame();
+            FillTilesWithImagePieces(shuffleMask);
         }
 
         private int[] CreateShuffleMask(int maskLength)
@@ -101,11 +102,16 @@ namespace Puzzle.Game
             return arrayToShuffle;
         }
 
+        private void SelectImageSlicesForGame()
+        {
+            currentGameImageSlices = ImageSlicesForNewGame.imageSlicesForNewGame;
+        }
+
         private void FillTilesWithImagePieces(int[] shuffleMask)
         {
-            for (int i = 0; i < Tiles.Length; i++)
+            for (int i = 0; i < tiles.Length; i++)
             {
-                Tiles[i].sprite = ImagePieces[shuffleMask[i]];
+                tiles[i].sprite = currentGameImageSlices[shuffleMask[i]];
             }
         }
 
@@ -124,9 +130,9 @@ namespace Puzzle.Game
 
         private bool ImageWasAssembledCorrectly()
         {
-            for (int i = 0; i < Tiles.Length; i++)
+            for (int i = 0; i < tiles.Length; i++)
             {
-                if (Tiles[i].sprite.name != i.ToString())
+                if (tiles[i].sprite.name != i.ToString())
                 {
                     return false;
                 }

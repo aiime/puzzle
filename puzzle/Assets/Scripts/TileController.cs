@@ -13,13 +13,21 @@ namespace Puzzle.Game
 
         private Image firstTile = null;
         private Image secondTile = null;
-        private Sprite[] currentGameImageSlices = null;
 
         private const int TILES_NUMBER = 9;
 
-        private void Awake()
+        public void PrepareGameField(Sprite[] imageSlices)
         {
-            PrepareGameField();
+            /* На тайлы сразу же устанавливается перемешанное изображение, поэтому установка кусков
+             * изображений идёт по маске перемешивания, которую мы далее создаём.
+             */
+            int[] shuffleMask = CreateShuffleMask(TILES_NUMBER);
+            /* Что такое маска перемешивания?
+             * К примеру, маска перемешивания получилась { 3, 7, 2, 4, 1, 5, 6, 8, 0 }. Это значит, что 
+             * сначала нужно взять изображение под номером 3, затем под номером 7, затем под номером 2 и т.д.
+             */
+
+            FillTilesWithImageSlices(imageSlices, shuffleMask);
         }
 
         public void OnTileClicked(TileClickDetector tileClicked)
@@ -51,21 +59,6 @@ namespace Puzzle.Game
             {
                 return false;
             }
-        }
-
-        private void PrepareGameField()
-        {
-            /* На тайлы сразу же устанавливается перемешанное изображение, поэтому установка кусков
-             * изображений идёт по маске перемешивания, которую мы далее создаём.
-             */
-            int[] shuffleMask = CreateShuffleMask(TILES_NUMBER);
-            /* Что такое маска перемешивания?
-             * К примеру, маска перемешивания получилась { 3, 7, 2, 4, 1, 5, 6, 8, 0 }. Это значит, что 
-             * сначала нужно взять изображение под номером 3, затем под номером 7, затем под номером 2 и т.д.
-             */
-
-            SelectImageSlicesForGame();
-            FillTilesWithImagePieces(shuffleMask);
         }
 
         private int[] CreateShuffleMask(int maskLength)
@@ -102,16 +95,11 @@ namespace Puzzle.Game
             return arrayToShuffle;
         }
 
-        private void SelectImageSlicesForGame()
-        {
-            currentGameImageSlices = ImageSlicesForNewGame.imageSlicesForNewGame;
-        }
-
-        private void FillTilesWithImagePieces(int[] shuffleMask)
+        private void FillTilesWithImageSlices(Sprite[] imageSlices, int[] shuffleMask)
         {
             for (int i = 0; i < tiles.Length; i++)
             {
-                tiles[i].sprite = currentGameImageSlices[shuffleMask[i]];
+                tiles[i].sprite = imageSlices[shuffleMask[i]];
             }
         }
 

@@ -1,76 +1,85 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Collections;
+using Puzzle.Game;
 
 namespace Puzzle.MainMenu
 {
     public class MainMenuController : MonoBehaviour
     {
-        [SerializeField] private GameObject mainMenuPanel;
-        [SerializeField] private GameObject newGamePanel;
+        [SerializeField] private GameObject gameModePanel;
+        [SerializeField] private GameObject collectionPanel;
         [SerializeField] private GameObject optionsPanel;
+
+        [SerializeField] private GameObject selectionModeClickBlocker;
+        [SerializeField] private GameObject gameModeClickBlocker;
+
+        [SerializeField] private TileController tileController;
+
+        [SerializeField] private CanvasGroup selectionModeCanvasGroup;
+        [SerializeField] private CanvasGroup gameModeCanvasGroup;
 
         [SerializeField] private Sprite[] avatarSlices;
         [SerializeField] private Sprite[] dawkinsSlices;
         [SerializeField] private Sprite[] helloSlices;
 
-        [SerializeField] private string puzzleScene;
+        private const float TIME_TO_FAID_IN = 1;
+        private float currentTime = 0;
 
-        private void Awake()
+
+        // Обработчики кнопок на нижней выдвигающейся панельке.
+        public void OpenCollection()
         {
-            //DontDestroyOnLoad(this.gameObject);
+            collectionPanel.SetActive(true);
         }
 
-        // Обработчики кнопок на панели "Main Menu"
-        public void OnNewGameButtonClick()
+        public void OpenOptions()
         {
-            mainMenuPanel.SetActive(false);
-            newGamePanel.SetActive(true);
-            optionsPanel.SetActive(false);
-        }
-
-        public void OnOptionsButtonClick()
-        {
-            mainMenuPanel.SetActive(false);
-            newGamePanel.SetActive(false);
             optionsPanel.SetActive(true);
         }
 
-        public void OnExitButtonClick()
+        public void ExitGame()
         {
             
         }
 
-        // Обработчики кнопок на панели "New Game"
-        public void OnAvatarClick()
+        // Обработчики кнопок на панели imageSelection
+        public void PlayWithAvatar()
         {
-            ImageSlicesForNewGame.imageSlicesForNewGame = avatarSlices;
-            SceneManager.LoadScene(puzzleScene);
+            tileController.PrepareGameField(avatarSlices);
+            StartCoroutine(FadeInGameMode());
         }
 
-        public void OnDawkinsClick()
+        public void PlayWithDawkins()
         {
-            ImageSlicesForNewGame.imageSlicesForNewGame = dawkinsSlices;
-            SceneManager.LoadScene(puzzleScene);
+            tileController.PrepareGameField(dawkinsSlices);
+            StartCoroutine(FadeInGameMode());
         }
 
-        public void OnHelloClick()
+        public void PlayWithHello()
         {
-            ImageSlicesForNewGame.imageSlicesForNewGame = helloSlices;
-            SceneManager.LoadScene(puzzleScene);
-        }
-
-        public void OnNewGamePanelBackClick()
-        {
-            mainMenuPanel.SetActive(true);
-            newGamePanel.SetActive(false);
+            tileController.PrepareGameField(helloSlices);
+            StartCoroutine(FadeInGameMode());
         }
 
         // Обработчики кнопок на панели "Options"
-        public void OnOptionsPanelBackClick()
+        public void CloseOptions()
         {
-            mainMenuPanel.SetActive(true);
-            optionsPanel.SetActive(false);
+
         }
 
+        IEnumerator FadeInGameMode()
+        {
+            selectionModeCanvasGroup.blocksRaycasts = false;
+
+            while (gameModeCanvasGroup.alpha != 1)
+            {
+                currentTime += Time.deltaTime;
+                gameModeCanvasGroup.alpha = Mathf.Lerp(0, 1, currentTime / TIME_TO_FAID_IN);
+                yield return null;
+            }
+
+            gameModeCanvasGroup.blocksRaycasts = true;
+            yield break;
+        }
     }
 }

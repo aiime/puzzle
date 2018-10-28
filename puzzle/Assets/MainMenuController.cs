@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using Puzzle.Game;
+using Service;
 
 namespace Puzzle.MainMenu
 {
@@ -22,7 +24,10 @@ namespace Puzzle.MainMenu
         [SerializeField] private Sprite[] dawkinsSlices;
         [SerializeField] private Sprite[] helloSlices;
 
-        private const float TIME_TO_FAID_IN = 1;
+        public Action EnteringGameMode;
+        public Action ExitingGameMode;
+
+        private const float TIME_TO_FAID_IN = 0.5f;
         private float currentTime = 0;
 
 
@@ -42,23 +47,32 @@ namespace Puzzle.MainMenu
             
         }
 
+        public void ExitGameMode()
+        {
+            StartCoroutine(FadeOutGameMode());
+            ExitingGameMode.SafeInvoke();
+        }
+
         // Обработчики кнопок на панели imageSelection
         public void PlayWithAvatar()
         {
             tileController.PrepareGameField(avatarSlices);
             StartCoroutine(FadeInGameMode());
+            EnteringGameMode.SafeInvoke();
         }
 
         public void PlayWithDawkins()
         {
             tileController.PrepareGameField(dawkinsSlices);
             StartCoroutine(FadeInGameMode());
+            EnteringGameMode.SafeInvoke();
         }
 
         public void PlayWithHello()
         {
             tileController.PrepareGameField(helloSlices);
             StartCoroutine(FadeInGameMode());
+            EnteringGameMode.SafeInvoke();
         }
 
         // Обработчики кнопок на панели "Options"
@@ -79,7 +93,22 @@ namespace Puzzle.MainMenu
             }
 
             gameModeCanvasGroup.blocksRaycasts = true;
-            yield break;
+            currentTime = 0;
+        }
+
+        IEnumerator FadeOutGameMode()
+        {
+            gameModeCanvasGroup.blocksRaycasts = false;
+
+            while (gameModeCanvasGroup.alpha != 0)
+            {
+                currentTime += Time.deltaTime;
+                gameModeCanvasGroup.alpha = Mathf.Lerp(1, 0, currentTime / TIME_TO_FAID_IN);
+                yield return null;
+            }
+
+            selectionModeCanvasGroup.blocksRaycasts = true;
+            currentTime = 0;
         }
     }
 }

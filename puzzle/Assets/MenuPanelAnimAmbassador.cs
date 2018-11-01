@@ -1,21 +1,30 @@
 ﻿using UnityEngine;
 
-/* Скрипт-посол. По срабатыванию ивента на анимации он отправляет команду на исполняющий скрипт, прикреплённый
- * к дочернему игровому объекту. Это сделано из-за того, что аниматор может вызывать только те функции, которые
- * прикреплены к текущему игровому объекту. Если необходимая функция висит на дочернем, то приходится делать
- * такие страшные вещи
- */
-public class MenuPanelAnimAmbassador : MonoBehaviour
+namespace Puzzle.UI.BottomMenu
 {
-    [SerializeField] private HideMenu hideMenuScript;
-
-    public void OnOpenAnimationEnd()
+    /// <summary>
+    /// Перенаправляет анимационные события на их методы-обработчики, находящиеся в скрипте на другом объекте.
+    /// </summary>
+    /// <remarks>
+    /// Это сделано из-за того, что анимационные события "нативно" могут обрабатываться только методами в 
+    /// скриптах, висящих на том же объекте, на котором висит аниматор. Если же нужные методы находятся в
+    /// скрипте, висящим на другом объекте, то приходится создавать вот такой специальный скрипт-редиректор, 
+    /// с помощью которого можно направлять события туда на обработку.
+    /// </remarks>
+    [AddComponentMenu("Puzzle/UI/Bottom Menu/Animation Events From Animator To Controller Of Hide Button")]
+    public class AnimationEvents_FromAnimatorToControllerOfHideButton : MonoBehaviour
+    // Не смог придумать более короткое название -______-
     {
-        hideMenuScript.SetRightArrow();
-    }
+        [SerializeField] private Controller_HideButton controller_hideButton;
 
-    public void OnCloseAnimationEnd()
-    {
-        hideMenuScript.SetLeftArrow();
+        public void OnOpenAnimationEnd()
+        {
+            controller_hideButton.OnOpenAnimationEnd();
+        }
+
+        public void OnHideAnimationEnd()
+        {
+            controller_hideButton.OnHideAnimationEnd();
+        }
     }
 }

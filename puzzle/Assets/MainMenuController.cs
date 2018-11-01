@@ -4,17 +4,11 @@ using System.Collections;
 using Puzzle.Game;
 using Service;
 
-namespace Puzzle.MainMenu
+namespace Puzzle.UI
 {
+    //[AddComponentMenu("Puzzle/UI/Main Menu/Main Menu Controller")]
     public class MainMenuController : MonoBehaviour
     {
-        [SerializeField] private GameObject gameModePanel;
-        [SerializeField] private GameObject collectionPanel;
-        [SerializeField] private GameObject optionsPanel;
-
-        [SerializeField] private GameObject selectionModeClickBlocker;
-        [SerializeField] private GameObject gameModeClickBlocker;
-
         [SerializeField] private TileController tileController;
 
         [SerializeField] private CanvasGroup selectionModeCanvasGroup;
@@ -28,24 +22,7 @@ namespace Puzzle.MainMenu
         public Action ExitingGameMode;
 
         private const float TIME_TO_FAID_IN = 0.5f;
-        private float currentTime = 0;
-
-
-        // Обработчики кнопок на нижней выдвигающейся панельке.
-        public void OpenCollection()
-        {
-            collectionPanel.SetActive(true);
-        }
-
-        public void OpenOptions()
-        {
-            optionsPanel.SetActive(true);
-        }
-
-        public void ExitGame()
-        {
-            
-        }
+        //private float currentTime = 0;
 
         public void ExitGameMode()
         {
@@ -75,15 +52,11 @@ namespace Puzzle.MainMenu
             EnteringGameMode.SafeInvoke();
         }
 
-        // Обработчики кнопок на панели "Options"
-        public void CloseOptions()
-        {
-
-        }
-
         IEnumerator FadeInGameMode()
         {
             selectionModeCanvasGroup.blocksRaycasts = false;
+
+            float currentTime = 0;
 
             while (gameModeCanvasGroup.alpha != 1)
             {
@@ -93,12 +66,13 @@ namespace Puzzle.MainMenu
             }
 
             gameModeCanvasGroup.blocksRaycasts = true;
-            currentTime = 0;
         }
 
         IEnumerator FadeOutGameMode()
         {
             gameModeCanvasGroup.blocksRaycasts = false;
+
+            float currentTime = 0;
 
             while (gameModeCanvasGroup.alpha != 0)
             {
@@ -108,7 +82,6 @@ namespace Puzzle.MainMenu
             }
 
             selectionModeCanvasGroup.blocksRaycasts = true;
-            currentTime = 0;
         }
     }
 }

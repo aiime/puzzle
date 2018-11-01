@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 138589884}
   - component: {fileID: 138589887}
   m_Layer: 5
-  m_Name: Bottom Menu
+  m_Name: BOTTOM MENU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb1863238da3554c9ce7bfc3ed94203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideMenuScript: {fileID: 386801185}
+  hideMenuScript: {fileID: 0}
 --- !u!1 &140495238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1008,6 @@ GameObject:
   - component: {fileID: 386801188}
   - component: {fileID: 386801187}
   - component: {fileID: 386801186}
-  - component: {fileID: 386801185}
   m_Layer: 5
   m_Name: Bottom Menu Hide Button
   m_TagString: Untagged
@@ -1035,21 +1034,6 @@ RectTransform:
   m_AnchoredPosition: {x: -645.9, y: 110}
   m_SizeDelta: {x: 108.8, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &386801185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 386801183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 461bf5bc0b19919418d864c16ad42699, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuAnimator: {fileID: 138589884}
-  arrowImage: {fileID: 852645761}
-  arrowRight: {fileID: 21300000, guid: 764e71b9fb848490b818ec151f6828d0, type: 3}
-  arrowLeft: {fileID: 21300000, guid: e29e398c6bfa34294a3c94667db60d53, type: 3}
 --- !u!114 &386801186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,7 +1073,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 386801185}
+      - m_Target: {fileID: 0}
         m_MethodName: OnHideMenuClick
         m_Mode: 1
         m_Arguments:
@@ -2113,11 +2097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c70d00687cbd940828177bbc87b0ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameModePanel: {fileID: 1329719808}
-  collectionPanel: {fileID: 234815395}
-  optionsPanel: {fileID: 6071945}
-  selectionModeClickBlocker: {fileID: 0}
-  gameModeClickBlocker: {fileID: 0}
   tileController: {fileID: 1754501173}
   selectionModeCanvasGroup: {fileID: 1004333541}
   gameModeCanvasGroup: {fileID: 1329719810}
@@ -2811,9 +2790,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19d9a72ff505614db02d1d1ba9c9f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuController: {fileID: 681196785}
-  exitToSystemButton: {fileID: 838648427}
-  exitToSelectionButton: {fileID: 589674001}
+  controller_mainMenu: {fileID: 0}
+  canvasGroupOfButton_exitToSystem: {fileID: 0}
+  canvasGroupOfButton_exitToSelection: {fileID: 0}
+  timeToFade: 0
 --- !u!1 &852645759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,7 +3225,7 @@ GameObject:
   - component: {fileID: 1004333540}
   - component: {fileID: 1004333541}
   m_Layer: 5
-  m_Name: Selection Mode
+  m_Name: SELECTION
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3359,7 +3339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1089789411}
   m_Layer: 5
-  m_Name: Options
+  m_Name: OPTIONS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3396,6 +3376,7 @@ GameObject:
   - component: {fileID: 1121743929}
   - component: {fileID: 1121743928}
   - component: {fileID: 1121743927}
+  - component: {fileID: 1121743930}
   m_Layer: 5
   m_Name: Options Panel
   m_TagString: Untagged
@@ -3471,6 +3452,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1121743925}
   m_CullTransparentMesh: 0
+--- !u!114 &1121743930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1121743925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b34f4016ee60d4798f332584ae8bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideMenuScript: {fileID: 0}
 --- !u!224 &1178813976 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224392813379502548, guid: 5f8d042f2f5868143b555e16cdbb8870,
@@ -3889,7 +3882,7 @@ GameObject:
   - component: {fileID: 1329719809}
   - component: {fileID: 1329719810}
   m_Layer: 5
-  m_Name: Game Mode
+  m_Name: GAME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

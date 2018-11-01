@@ -1,53 +1,52 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
-using UnityEngine.UI;
 
-public class RefuseButtonController : MonoBehaviour
+namespace Puzzle.UI.OptionsMenu
 {
-    [SerializeField] private GameObject optionsPanel;
-    [SerializeField] private GameObject optionsPanelBlocker;
-    [SerializeField] private GameObject backBlocker;
-    [SerializeField] private CanvasGroup optionsPanelCanvasGroup;
-    [SerializeField] private CanvasGroup backBlockerCanvasGroup;
-    [SerializeField] private float timeToFade;
-
-    private float currentTimeForOptionPanel;
-    private float currentTimeForBackBlockerPanel;
-
-    public void OnRefuseClick()
+    [AddComponentMenu("Puzzle/UI/Options Menu/Refuse Button Controller")]
+    public class Controller_RefuseButton : MonoBehaviour
     {
-        StartCoroutine(FadeOutOptionsPanel());
-        StartCoroutine(FadeOutBackBlockerPanel());
-    }
+        [SerializeField] private GameObject panel_options;
+        [SerializeField] private GameObject panel_backBlocker;
+        [SerializeField] private GameObject panel_optionsBlocker;
+        [SerializeField] private CanvasGroup canvasGroupOfPanel_options;
+        [SerializeField] private CanvasGroup canvasGroupOfPanel_backBlocker;
+        [SerializeField] private float timeToFade;
 
-    private IEnumerator FadeOutOptionsPanel()
-    {
-        optionsPanelBlocker.SetActive(true);
-
-        while (optionsPanelCanvasGroup.alpha != 0)
+        public void OnRefuseClick()
         {
-            currentTimeForOptionPanel += Time.deltaTime;
-            optionsPanelCanvasGroup.alpha = Mathf.Lerp(1, 0, currentTimeForOptionPanel / timeToFade);
-            yield return null;
+            StartCoroutine(FadeOutPanel_Options());
+            StartCoroutine(FadeOutPanel_BackBlocker());
         }
 
-        optionsPanel.SetActive(false);
-        optionsPanelBlocker.SetActive(false);
-        backBlocker.SetActive(false);
-        currentTimeForOptionPanel = 0;
-    }
-
-    private IEnumerator FadeOutBackBlockerPanel()
-    {
-        while (backBlockerCanvasGroup.alpha != 0)
+        private IEnumerator FadeOutPanel_Options()
         {
-            currentTimeForBackBlockerPanel += Time.deltaTime;
-            backBlockerCanvasGroup.alpha = Mathf.Lerp(1, 0, currentTimeForBackBlockerPanel / timeToFade);
-            yield return null;
+            panel_optionsBlocker.SetActive(true);
+
+            float currentTime = 0;
+
+            while (canvasGroupOfPanel_options.alpha != 0)
+            {
+                currentTime += Time.deltaTime;
+                canvasGroupOfPanel_options.alpha = Mathf.Lerp(1, 0, currentTime / timeToFade);
+                yield return null;
+            }
+
+            panel_options.SetActive(false);
+            panel_optionsBlocker.SetActive(false);
+            panel_backBlocker.SetActive(false);
         }
 
-        currentTimeForBackBlockerPanel = 0;
+        private IEnumerator FadeOutPanel_BackBlocker()
+        {
+            float currentTime = 0;
+
+            while (canvasGroupOfPanel_backBlocker.alpha != 0)
+            {
+                currentTime += Time.deltaTime;
+                canvasGroupOfPanel_backBlocker.alpha = Mathf.Lerp(1, 0, currentTime / timeToFade);
+                yield return null;
+            }
+        }
     }
 }

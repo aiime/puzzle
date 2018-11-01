@@ -1,45 +1,49 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class HideMenu : MonoBehaviour
+namespace Puzzle.UI.BottomMenu
 {
-    [SerializeField] private Animator menuAnimator;
-    [SerializeField] private Image arrowImage;
-    [SerializeField] private Sprite arrowRight;
-    [SerializeField] private Sprite arrowLeft;
-    private bool menuOpened;
-
-    public void OnHideMenuClick()
+    [AddComponentMenu("Puzzle/UI/Bottom Menu/Hide Button Controller")]
+    public class Controller_HideButton : MonoBehaviour
     {
-        if (menuOpened)
+        [SerializeField] private Animator animator_bottomMenu;
+        [SerializeField] private Image image_hideButton;
+        [SerializeField] private Sprite rightArrow;
+        [SerializeField] private Sprite leftArrow;
+        private bool menuOpened;
+
+        public void OnHideButtonClick()
         {
-            CloseMenu();
+            if (menuOpened)
+            {
+                HideMenu();
+            }
+            else
+            {
+                OpenMenu();
+            }
         }
-        else
+
+        public void OnOpenAnimationEnd()
         {
-            OpenMenu();
+            image_hideButton.sprite = rightArrow;
+        }
+
+        public void OnHideAnimationEnd()
+        {
+            image_hideButton.sprite = leftArrow;
+        }
+
+        private void HideMenu()
+        {
+            menuOpened = false;
+            animator_bottomMenu.SetTrigger("HideMenu");
+        }
+
+        private void OpenMenu()
+        {
+            menuOpened = true;
+            animator_bottomMenu.SetTrigger("OpenMenu");
         }
     }
-
-    public void SetRightArrow()
-    {
-        arrowImage.sprite = arrowRight;
-    }
-
-    public void SetLeftArrow()
-    {
-        arrowImage.sprite = arrowLeft;
-    }
-
-    private void CloseMenu()
-    {
-        menuOpened = false;
-        menuAnimator.SetTrigger("CloseMenu");
-    }
-
-    private void OpenMenu()
-    {
-        menuOpened = true;
-        menuAnimator.SetTrigger("OpenMenu");  
-    } 
 }

@@ -1,5 +1,9 @@
 ﻿namespace UnityEngine.UI
 {
+    /// <summary>
+    /// Модифицированная версия GridLayoutGroup. В отличие от оригинала, растягивает элементы сетки при изменении
+    /// размера родителя. Скрипт похищен из интернета. Йо-хо-хо!
+    /// </summary>
     [AddComponentMenu("Layout/Stretchy Grid Layout Group")]
     public class StretchyGridLayoutGroup : LayoutGroup
     {

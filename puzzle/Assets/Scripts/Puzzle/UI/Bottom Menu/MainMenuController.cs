@@ -6,7 +6,7 @@ using Service;
 
 namespace Puzzle.UI
 {
-    //[AddComponentMenu("Puzzle/UI/Main Menu/Main Menu Controller")]
+    [AddComponentMenu("Puzzle/UI/Main Menu/Main Menu Controller")]
     public class MainMenuController : MonoBehaviour
     {
         [SerializeField] private TileController tileController;

@@ -12,19 +12,19 @@ namespace Puzzle.UI.BottomMenu
     /// с помощью которого можно направлять события туда на обработку.
     /// </remarks>
     [AddComponentMenu("Puzzle/UI/Bottom Menu/Animation Events From Animator To Controller Of Hide Button")]
-    public class AnimationEvents_FromAnimatorToControllerOfHideButton : MonoBehaviour
+    public class AnimationEventsFromAnimatorToControllerOfHideButton : MonoBehaviour
     // Не смог придумать более короткое название -______-
     {
-        [SerializeField] private Controller_HideButton controller_hideButton;
+        [SerializeField] private HideButtonController hideButtonController;
 
         public void OnOpenAnimationEnd()
         {
-            controller_hideButton.OnOpenAnimationEnd();
+            hideButtonController.OnOpenAnimationEnd();
         }
 
         public void OnHideAnimationEnd()
         {
-            controller_hideButton.OnHideAnimationEnd();
+            hideButtonController.OnHideAnimationEnd();
         }
     }
 }

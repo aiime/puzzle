@@ -4,47 +4,47 @@ using UnityEngine;
 namespace Puzzle.UI.BottomMenu
 {
     [AddComponentMenu("Puzzle/UI/Bottom Menu/Options Button Controller")]
-    public class Controller_OptionsButton : MonoBehaviour
+    public class OptionsButtonController : MonoBehaviour
     {
-        [SerializeField] private GameObject panel_options;
-        [SerializeField] private GameObject panel_backBlocker;
-        [SerializeField] private GameObject panel_optionsBlocker;
-        [SerializeField] private CanvasGroup canvasGroupOfPanel_options;
-        [SerializeField] private CanvasGroup canvasGroupOfPanel_backBlocker;
+        [SerializeField] private GameObject optionsPanel;
+        [SerializeField] private GameObject backBlockerPanel;
+        [SerializeField] private GameObject optionsBlockerPanel;
+        [SerializeField] private CanvasGroup canvasGroupOfOptionsPanel;
+        [SerializeField] private CanvasGroup canvasGroupOfBackBlockerPanel;
         [SerializeField] private float timeToFade;
 
         public void OnOptionsClick()
         {
-            StartCoroutine(FadeInPanel_Options());
-            StartCoroutine(FadeInPanel_BackBlocker());
+            StartCoroutine(FadeIn_OptionsPanel());
+            StartCoroutine(FadeIn_BackBlockerPanel());
         }
 
-        private IEnumerator FadeInPanel_Options()
+        private IEnumerator FadeIn_OptionsPanel()
         {
-            panel_backBlocker.SetActive(true);
-            panel_options.SetActive(true);
-            panel_optionsBlocker.SetActive(true);
+            backBlockerPanel.SetActive(true);
+            optionsPanel.SetActive(true);
+            optionsBlockerPanel.SetActive(true);
 
             float currentTime = 0;
 
-            while (canvasGroupOfPanel_options.alpha != 1)
+            while (canvasGroupOfOptionsPanel.alpha != 1)
             {
                 currentTime += Time.deltaTime;
-                canvasGroupOfPanel_options.alpha = Mathf.Lerp(0, 1, currentTime / timeToFade);
+                canvasGroupOfOptionsPanel.alpha = Mathf.Lerp(0, 1, currentTime / timeToFade);
                 yield return null;
             }
 
-            panel_optionsBlocker.SetActive(false);
+            optionsBlockerPanel.SetActive(false);
         }
 
-        private IEnumerator FadeInPanel_BackBlocker()
+        private IEnumerator FadeIn_BackBlockerPanel()
         {
             float currentTime = 0;
 
-            while (canvasGroupOfPanel_backBlocker.alpha != 1)
+            while (canvasGroupOfBackBlockerPanel.alpha != 1)
             {
                 currentTime += Time.deltaTime;
-                canvasGroupOfPanel_backBlocker.alpha = Mathf.Lerp(0, 1, currentTime / timeToFade);
+                canvasGroupOfBackBlockerPanel.alpha = Mathf.Lerp(0, 1, currentTime / timeToFade);
                 yield return null;
             }
         }

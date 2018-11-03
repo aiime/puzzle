@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114992264413013548}
   - component: {fileID: 114425529517937502}
   m_Layer: 5
-  m_Name: Selection Item
+  m_Name: SelectionItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114613924122257292}
   - component: {fileID: 114958564232134976}
   m_Layer: 5
-  m_Name: Rounded Rect Mask
+  m_Name: RoundedRectMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300018, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

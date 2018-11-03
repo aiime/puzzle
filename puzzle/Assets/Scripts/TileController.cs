@@ -1,14 +1,23 @@
 ﻿using System;
+using System.Collections;
+
 using UnityEngine;
 using UnityEngine.UI;
+
 using Service;
 
 namespace Puzzle.Game
 {
-    public class TileController : MonoBehaviour
+    [AddComponentMenu("Puzzle/Game/Tiles Controller")]
+    public class TilesController : MonoBehaviour
     {
         [SerializeField] private Image[] tiles;
+        [SerializeField] private CanvasGroup canvasGroupOfSelectionPanel;
+        [SerializeField] private CanvasGroup canvasGroupOfGamePanel;
+        [SerializeField] private float timeToFade;
 
+        public Action EnteringGameMode;
+        public Action ExitingGameMode;
         public Action VictoryHappened;
 
         private Image firstTile = null;
@@ -28,6 +37,14 @@ namespace Puzzle.Game
              */
 
             FillTilesWithImageSlices(imageSlices, shuffleMask);
+            StartCoroutine(FadeIn_GamePanel());
+            EnteringGameMode.SafeInvoke();
+        }
+
+        public void ExitGameMode()
+        {
+            StartCoroutine(FadeOut_GamePanel());
+            ExitingGameMode.SafeInvoke();
         }
 
         public void OnTileClicked(TileClickDetector tileClicked)
@@ -126,6 +143,38 @@ namespace Puzzle.Game
                 }
             }
             return true;
+        }
+
+        IEnumerator FadeIn_GamePanel()
+        {
+            canvasGroupOfSelectionPanel.blocksRaycasts = false;
+
+            float currentTime = 0;
+
+            while (canvasGroupOfGamePanel.alpha != 1)
+            {
+                currentTime += Time.deltaTime;
+                canvasGroupOfGamePanel.alpha = Mathf.Lerp(0, 1, currentTime / timeToFade);
+                yield return null;
+            }
+
+            canvasGroupOfGamePanel.blocksRaycasts = true;
+        }
+
+        IEnumerator FadeOut_GamePanel()
+        {
+            canvasGroupOfGamePanel.blocksRaycasts = false;
+
+            float currentTime = 0;
+
+            while (canvasGroupOfGamePanel.alpha != 0)
+            {
+                currentTime += Time.deltaTime;
+                canvasGroupOfGamePanel.alpha = Mathf.Lerp(1, 0, currentTime / timeToFade);
+                yield return null;
+            }
+
+            canvasGroupOfSelectionPanel.blocksRaycasts = true;
         }
     }
 }

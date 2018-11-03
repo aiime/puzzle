@@ -3,14 +3,14 @@ using UnityEngine.EventSystems;
 
 namespace Puzzle.Game
 {
+    [AddComponentMenu("Puzzle/Game/Tile Click Detector")]
     public class TileClickDetector : MonoBehaviour, IPointerClickHandler
     {
-        public TileController tileController;
-        public int tileNo;
+        public TilesController tilesController;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            tileController.OnTileClicked(this);
+            tilesController.OnTileClicked(this);
         }
     }
 }

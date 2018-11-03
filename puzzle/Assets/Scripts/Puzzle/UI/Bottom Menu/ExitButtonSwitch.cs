@@ -1,5 +1,8 @@
 ﻿using System.Collections;
+
 using UnityEngine;
+
+using Puzzle.Game;
 
 namespace Puzzle.UI.BottomMenu
 {
@@ -11,20 +14,20 @@ namespace Puzzle.UI.BottomMenu
     [AddComponentMenu("Puzzle/UI/Bottom Menu/Exit Button Switch")]
     public class ExitButtonSwitch : MonoBehaviour
     {
-        [SerializeField] private MainMenuController mainMenuController;
+        [SerializeField] private TilesController tilesController;
         [SerializeField] private CanvasGroup canvasGroupOfExitToSystemButton;
         [SerializeField] private CanvasGroup canvasGroupOfExitToSelectionButton;
         [SerializeField] private float timeToFade;
 
         private void Start()
         {
-            mainMenuController.EnteringGameMode += delegate
+            tilesController.EnteringGameMode += () =>
             {
                 StartCoroutine(FadeIn_ExitToSelectionButton());
                 StartCoroutine(FadeOut_ExitToSystemButton());
             };
 
-            mainMenuController.ExitingGameMode += delegate
+            tilesController.ExitingGameMode += () =>
             {
                 StartCoroutine(FadeIn_ExitToSystemButton());
                 StartCoroutine(FadeOut_ExitToSelectionButton());

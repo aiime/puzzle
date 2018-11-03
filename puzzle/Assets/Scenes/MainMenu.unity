@@ -245,14 +245,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6071945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee516d238b1ae3419fdb258295d992e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f72c0e50834d404dac009a286cae150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   optionsPanel: {fileID: 1121743925}
-  optionsPanelBlocker: {fileID: 767264140}
-  backBlocker: {fileID: 420821377}
-  optionsPanelCanvasGroup: {fileID: 1121743927}
-  backBlockerCanvasGroup: {fileID: 420821381}
+  backBlockerPanel: {fileID: 420821377}
+  optionsBlockerPanel: {fileID: 767264140}
+  canvasGroupOfOptionsPanel: {fileID: 1121743927}
+  canvasGroupOfBackBlockerPanel: {fileID: 420821381}
   timeToFade: 0.3
 --- !u!1 &89639864
 GameObject:
@@ -378,8 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  tileNo: 0
+  tilesController: {fileID: 0}
 --- !u!114 &100345165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,10 +512,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 138589882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eb1863238da3554c9ce7bfc3ed94203, type: 3}
+  m_Script: {fileID: 11500000, guid: b681e9166812b01429c868b2dc0a3e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideMenuScript: {fileID: 0}
+  hideButtonController: {fileID: 386801185}
 --- !u!1 &140495238
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,8 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  tileNo: 0
+  tilesController: {fileID: 0}
 --- !u!114 &140495241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,8 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  tileNo: 0
+  tilesController: {fileID: 0}
 --- !u!114 &205332265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,7 +893,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 681196785}
+      - m_Target: {fileID: 0}
         m_MethodName: OpenCollection
         m_Mode: 1
         m_Arguments:
@@ -961,8 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  tileNo: 0
+  tilesController: {fileID: 0}
 --- !u!114 &311046215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,8 +1004,9 @@ GameObject:
   - component: {fileID: 386801188}
   - component: {fileID: 386801187}
   - component: {fileID: 386801186}
+  - component: {fileID: 386801185}
   m_Layer: 5
-  m_Name: Bottom Menu Hide Button
+  m_Name: Hide Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,6 +1031,21 @@ RectTransform:
   m_AnchoredPosition: {x: -645.9, y: 110}
   m_SizeDelta: {x: 108.8, y: 220}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &386801185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 386801183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54f2ddf693600447a929969d0f388c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomMenuAnimator: {fileID: 138589884}
+  hideButtonImage: {fileID: 852645761}
+  rightArrow: {fileID: 21300000, guid: 764e71b9fb848490b818ec151f6828d0, type: 3}
+  leftArrow: {fileID: 21300000, guid: e29e398c6bfa34294a3c94667db60d53, type: 3}
 --- !u!114 &386801186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,8 +1085,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnHideMenuClick
+      - m_Target: {fileID: 386801185}
+        m_MethodName: OnHideButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1132,7 +1144,7 @@ GameObject:
   - component: {fileID: 420821379}
   - component: {fileID: 420821381}
   m_Layer: 5
-  m_Name: Back Blocker
+  m_Name: Back Blocker Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1386,8 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  tileNo: 0
+  tilesController: {fileID: 0}
 --- !u!114 &519465364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,8 +1485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  tileNo: 0
+  tilesController: {fileID: 0}
 --- !u!114 &534959545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,7 +1610,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 681196785}
+      - m_Target: {fileID: 0}
         m_MethodName: ExitGameMode
         m_Mode: 1
         m_Arguments:
@@ -1817,7 +1827,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 681196785}
+      objectReference: {fileID: 0}
     - target: {fileID: 1541466071635818, guid: 5f8d042f2f5868143b555e16cdbb8870, type: 2}
       propertyPath: m_Name
       value: Avatar
@@ -2070,79 +2080,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
---- !u!1 &681196784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 681196786}
-  - component: {fileID: 681196785}
-  m_Layer: 0
-  m_Name: MainMenuController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &681196785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 681196784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c70d00687cbd940828177bbc87b0ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  selectionModeCanvasGroup: {fileID: 1004333541}
-  gameModeCanvasGroup: {fileID: 1329719810}
-  avatarSlices:
-  - {fileID: 21300000, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
-  - {fileID: 21300002, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
-  - {fileID: 21300004, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
-  - {fileID: 21300006, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
-  - {fileID: 21300008, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
-  - {fileID: 21300010, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
-  - {fileID: 21300012, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
-  - {fileID: 21300014, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
-  - {fileID: 21300016, guid: e415b95ba153c734fa99d96e85e174ed, type: 3}
-  dawkinsSlices:
-  - {fileID: 21300000, guid: 89530f84c6c5abd45b329ea9679ae547, type: 3}
-  - {fileID: 21300002, guid: 89530f84c6c5abd45b329ea9679ae547, type: 3}
-  - {fileID: 21300004, guid: 89530f84c6c5abd45b329ea9679ae547, type: 3}
-  - {fileID: 21300006, guid: 89530f84c6c5abd45b329ea9679ae547, type: 3}
-  - {fileID: 21300008, guid: 89530f84c6c5abd45b329ea9679ae547, type: 3}
-  - {fileID: 21300010, guid: 89530f84c6c5abd45b329ea9679ae547, type: 3}
-  - {fileID: 21300012, guid: 89530f84c6c5abd45b329ea9679ae547, type: 3}
-  - {fileID: 21300014, guid: 89530f84c6c5abd45b329ea9679ae547, type: 3}
-  - {fileID: 21300016, guid: 89530f84c6c5abd45b329ea9679ae547, type: 3}
-  helloSlices:
-  - {fileID: 21300000, guid: 2c0aded4b7450924bb61d210cae5e59f, type: 3}
-  - {fileID: 21300002, guid: 2c0aded4b7450924bb61d210cae5e59f, type: 3}
-  - {fileID: 21300004, guid: 2c0aded4b7450924bb61d210cae5e59f, type: 3}
-  - {fileID: 21300006, guid: 2c0aded4b7450924bb61d210cae5e59f, type: 3}
-  - {fileID: 21300008, guid: 2c0aded4b7450924bb61d210cae5e59f, type: 3}
-  - {fileID: 21300010, guid: 2c0aded4b7450924bb61d210cae5e59f, type: 3}
-  - {fileID: 21300012, guid: 2c0aded4b7450924bb61d210cae5e59f, type: 3}
-  - {fileID: 21300014, guid: 2c0aded4b7450924bb61d210cae5e59f, type: 3}
-  - {fileID: 21300016, guid: 2c0aded4b7450924bb61d210cae5e59f, type: 3}
---- !u!4 &681196786
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 681196784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683505942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,7 +2347,7 @@ GameObject:
   - component: {fileID: 767264143}
   - component: {fileID: 767264142}
   m_Layer: 5
-  m_Name: Options Panel Blocker
+  m_Name: Options Blocker Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2654,8 +2591,8 @@ GameObject:
   - component: {fileID: 838648425}
   - component: {fileID: 838648424}
   - component: {fileID: 838648426}
-  - component: {fileID: 838648428}
   - component: {fileID: 838648427}
+  - component: {fileID: 838648428}
   m_Layer: 5
   m_Name: Exit To System Button
   m_TagString: Untagged
@@ -2755,8 +2692,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 681196785}
-        m_MethodName: ExitGame
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2790,10 +2727,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a19d9a72ff505614db02d1d1ba9c9f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller_mainMenu: {fileID: 0}
-  canvasGroupOfButton_exitToSystem: {fileID: 0}
-  canvasGroupOfButton_exitToSelection: {fileID: 0}
-  timeToFade: 0
+  tilesController: {fileID: 0}
+  canvasGroupOfExitToSystemButton: {fileID: 838648427}
+  canvasGroupOfExitToSelectionButton: {fileID: 589674001}
+  timeToFade: 0.3
 --- !u!1 &852645759
 GameObject:
   m_ObjectHideFlags: 0
@@ -2876,7 +2813,7 @@ GameObject:
   - component: {fileID: 873039793}
   - component: {fileID: 873039794}
   m_Layer: 5
-  m_Name: Confirm
+  m_Name: Confirm Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2999,10 +2936,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsPanel: {fileID: 1121743925}
-  optionsPanelBlocker: {fileID: 767264140}
-  backBlocker: {fileID: 420821377}
-  optionsPanelCanvasGroup: {fileID: 1121743927}
-  backBlockerCanvasGroup: {fileID: 420821381}
+  optionsBlockerPanel: {fileID: 767264140}
+  backBlockerPanel: {fileID: 420821377}
+  canvasGroupOfOptionsPanel: {fileID: 1121743927}
+  canvasGroupOfBackBlockerPanel: {fileID: 420821381}
   timeToFade: 0.3
 --- !u!1 &928789363
 GameObject:
@@ -3376,7 +3313,6 @@ GameObject:
   - component: {fileID: 1121743929}
   - component: {fileID: 1121743928}
   - component: {fileID: 1121743927}
-  - component: {fileID: 1121743930}
   m_Layer: 5
   m_Name: Options Panel
   m_TagString: Untagged
@@ -3452,18 +3388,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1121743925}
   m_CullTransparentMesh: 0
---- !u!114 &1121743930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1121743925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b34f4016ee60d4798f332584ae8bb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hideMenuScript: {fileID: 0}
 --- !u!224 &1178813976 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224392813379502548, guid: 5f8d042f2f5868143b555e16cdbb8870,
@@ -3814,7 +3738,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 681196785}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnHelloClick
@@ -3829,7 +3753,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 681196785}
+      objectReference: {fileID: 0}
     - target: {fileID: 114992264413013548, guid: 5f8d042f2f5868143b555e16cdbb8870,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4117,8 +4041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  tileNo: 0
+  tilesController: {fileID: 0}
 --- !u!114 &1554636321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4257,7 +4180,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 681196785}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnDawkinsClick
@@ -4272,7 +4195,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 681196785}
+      objectReference: {fileID: 0}
     - target: {fileID: 114992264413013548, guid: 5f8d042f2f5868143b555e16cdbb8870,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4403,8 +4326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  tileNo: 0
+  tilesController: {fileID: 0}
 --- !u!114 &1674431638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4529,7 +4451,7 @@ RectTransform:
   - {fileID: 138589883}
   - {fileID: 1089789411}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4609,7 +4531,6 @@ GameObject:
   - component: {fileID: 1754501172}
   - component: {fileID: 1754501171}
   - component: {fileID: 1754501170}
-  - component: {fileID: 1754501173}
   m_Layer: 5
   m_Name: Puzzle Tiles
   m_TagString: Untagged
@@ -4701,27 +4622,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1754501168}
   m_CullTransparentMesh: 0
---- !u!114 &1754501173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1754501168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad6b390c7292e164da60e6ea4d8718cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 519465364}
-  - {fileID: 205332265}
-  - {fileID: 100345165}
-  - {fileID: 140495241}
-  - {fileID: 1554636321}
-  - {fileID: 534959545}
-  - {fileID: 1674431638}
-  - {fileID: 1763161766}
-  - {fileID: 311046215}
 --- !u!1 &1763161763
 GameObject:
   m_ObjectHideFlags: 0
@@ -4769,8 +4669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileController: {fileID: 1754501173}
-  tileNo: 0
+  tilesController: {fileID: 0}
 --- !u!114 &1763161766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4852,7 +4751,7 @@ GameObject:
   - component: {fileID: 1783517315}
   - component: {fileID: 1783517316}
   m_Layer: 5
-  m_Name: Refuse
+  m_Name: Refuse Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4975,10 +4874,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsPanel: {fileID: 1121743925}
-  optionsPanelBlocker: {fileID: 767264140}
-  backBlocker: {fileID: 420821377}
-  optionsPanelCanvasGroup: {fileID: 1121743927}
-  backBlockerCanvasGroup: {fileID: 420821381}
+  backBlockerPanel: {fileID: 420821377}
+  optionsBlockerPanel: {fileID: 767264140}
+  canvasGroupOfOptionsPanel: {fileID: 1121743927}
+  canvasGroupOfBackBlockerPanel: {fileID: 420821381}
   timeToFade: 0.3
 --- !u!1 &1825113379
 GameObject:

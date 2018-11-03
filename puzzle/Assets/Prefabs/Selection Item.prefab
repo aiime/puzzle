@@ -38,8 +38,9 @@ GameObject:
   - component: {fileID: 224392813379502548}
   - component: {fileID: 222858245871773824}
   - component: {fileID: 114992264413013548}
+  - component: {fileID: 114425529517937502}
   m_Layer: 5
-  m_Name: SelectImageItem
+  m_Name: Selection Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +91,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114425529517937502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541466071635818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d401b9015ba6e479bed0f7199c7c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionItemButton: {fileID: 0}
+  tilesController: {fileID: 0}
+  imageSlices: []
 --- !u!114 &114613924122257292
 MonoBehaviour:
   m_ObjectHideFlags: 1

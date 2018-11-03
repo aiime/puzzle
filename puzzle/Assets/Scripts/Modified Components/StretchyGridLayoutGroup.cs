@@ -4,7 +4,7 @@
     /// Модифицированная версия GridLayoutGroup. В отличие от оригинала, растягивает элементы сетки при изменении
     /// размера родителя. Скрипт похищен из интернета. Йо-хо-хо!
     /// </summary>
-    [AddComponentMenu("Layout/Stretchy Grid Layout Group")]
+    [AddComponentMenu("Modified Components/Stretchy Grid Layout Group")]
     public class StretchyGridLayoutGroup : LayoutGroup
     {
         public enum Corner { UpperLeft = 0, UpperRight = 1, LowerLeft = 2, LowerRight = 3 }

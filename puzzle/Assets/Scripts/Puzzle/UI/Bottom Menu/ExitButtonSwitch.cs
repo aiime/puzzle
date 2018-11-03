@@ -17,17 +17,18 @@ namespace Puzzle.UI.BottomMenu
         [SerializeField] private TilesController tilesController;
         [SerializeField] private CanvasGroup canvasGroupOfExitToSystemButton;
         [SerializeField] private CanvasGroup canvasGroupOfExitToSelectionButton;
+        [SerializeField] private ExitToSelectionButtonController exitToSelectionButtonController;
         [SerializeField] private float timeToFade;
 
         private void Start()
         {
-            tilesController.EnteringGameMode += () =>
+            tilesController.EnteringGamePanel += () =>
             {
                 StartCoroutine(FadeIn_ExitToSelectionButton());
                 StartCoroutine(FadeOut_ExitToSystemButton());
             };
 
-            tilesController.ExitingGameMode += () =>
+            exitToSelectionButtonController.ExitingGamePanel += () =>
             {
                 StartCoroutine(FadeIn_ExitToSystemButton());
                 StartCoroutine(FadeOut_ExitToSelectionButton());

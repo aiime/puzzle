@@ -16,8 +16,7 @@ namespace Puzzle.Game
         [SerializeField] private CanvasGroup canvasGroupOfGamePanel;
         [SerializeField] private float timeToFade;
 
-        public Action EnteringGameMode;
-        public Action ExitingGameMode;
+        public Action EnteringGamePanel;
         public Action VictoryHappened;
 
         private Image firstTile = null;
@@ -38,13 +37,7 @@ namespace Puzzle.Game
 
             FillTilesWithImageSlices(imageSlices, shuffleMask);
             StartCoroutine(FadeIn_GamePanel());
-            EnteringGameMode.SafeInvoke();
-        }
-
-        public void ExitGameMode()
-        {
-            StartCoroutine(FadeOut_GamePanel());
-            ExitingGameMode.SafeInvoke();
+            EnteringGamePanel.SafeInvoke();
         }
 
         public void OnTileClicked(TileClickDetector tileClicked)
@@ -159,22 +152,6 @@ namespace Puzzle.Game
             }
 
             canvasGroupOfGamePanel.blocksRaycasts = true;
-        }
-
-        IEnumerator FadeOut_GamePanel()
-        {
-            canvasGroupOfGamePanel.blocksRaycasts = false;
-
-            float currentTime = 0;
-
-            while (canvasGroupOfGamePanel.alpha != 0)
-            {
-                currentTime += Time.deltaTime;
-                canvasGroupOfGamePanel.alpha = Mathf.Lerp(1, 0, currentTime / timeToFade);
-                yield return null;
-            }
-
-            canvasGroupOfSelectionPanel.blocksRaycasts = true;
         }
     }
 }

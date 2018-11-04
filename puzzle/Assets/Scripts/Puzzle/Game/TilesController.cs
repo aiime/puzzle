@@ -21,6 +21,8 @@ namespace Puzzle.Game
 
         private Image firstTile = null;
         private Image secondTile = null;
+        private TileClickDetector firstSelectedTile;
+        private Coroutine fadeInCoroutine;
 
         private const int TILES_NUMBER = 9;
 
@@ -45,6 +47,9 @@ namespace Puzzle.Game
             if (FirstTileNotSelected())
             {
                 firstTile = tileClicked.GetComponent<Image>();
+                firstSelectedTile = tileClicked;
+                fadeInCoroutine = 
+                    StartCoroutine(FadeIn_TileLightBorder(tileClicked.canvasGroupOfLightBorder, 0.1f));
             }
             else
             {
@@ -52,6 +57,8 @@ namespace Puzzle.Game
 
                 SwapTiles();
                 CleanTileReferences();
+                if (fadeInCoroutine != null) StopCoroutine(fadeInCoroutine);
+                firstSelectedTile.canvasGroupOfLightBorder.alpha = 0;
                 if (ImageWasAssembledCorrectly())
                 {
                     VictoryHappened.SafeInvoke();
@@ -152,6 +159,18 @@ namespace Puzzle.Game
             }
 
             canvasGroupOfGamePanel.blocksRaycasts = true;
+        }
+
+        IEnumerator FadeIn_TileLightBorder(CanvasGroup canvasGroupOfTileLightBorder, float timeToFade)
+        {
+            float currentTime = 0;
+
+            while (canvasGroupOfTileLightBorder.alpha != 1)
+            {
+                currentTime += Time.deltaTime;
+                canvasGroupOfTileLightBorder.alpha = Mathf.Lerp(0, 1, currentTime / timeToFade);
+                yield return null;
+            }
         }
     }
 }

@@ -5,8 +5,9 @@ namespace Puzzle.Game
 {
     [AddComponentMenu("Puzzle/Game/Tile Click Detector")]
     public class TileClickDetector : MonoBehaviour, IPointerClickHandler
-    {
-        public TilesController tilesController;
+    {        
+        [SerializeField] private TilesController tilesController;
+        public CanvasGroup canvasGroupOfLightBorder;
 
         public void OnPointerClick(PointerEventData eventData)
         {

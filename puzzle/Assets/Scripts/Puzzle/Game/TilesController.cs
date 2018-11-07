@@ -23,11 +23,14 @@ namespace Puzzle.Game
         private Image secondTile = null;
         private TileClickDetector firstSelectedTile;
         private Coroutine fadeInCoroutine;
+        private Sprite[] victorySequence;
 
         private const int TILES_NUMBER = 9;
 
         public void PrepareGameField(Sprite[] imageSlices)
         {
+            victorySequence = imageSlices;
+
             /* На тайлы сразу же устанавливается перемешанное изображение, поэтому установка кусков
              * изображений идёт по маске перемешивания, которую мы далее создаём.
              */
@@ -137,7 +140,7 @@ namespace Puzzle.Game
         {
             for (int i = 0; i < tiles.Length; i++)
             {
-                if (tiles[i].sprite.name != i.ToString())
+                if (tiles[i].sprite != victorySequence[i])
                 {
                     return false;
                 }

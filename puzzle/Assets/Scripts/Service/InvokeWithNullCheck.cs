@@ -8,5 +8,10 @@ namespace Service
         {
             if (action != null) action.Invoke();
         }
+
+        public static void SafeInvoke(this Action<int> action, int value)
+        {
+            if (action != null) action.Invoke(value);
+        }
     }
 }

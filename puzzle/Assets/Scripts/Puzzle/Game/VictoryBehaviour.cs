@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 using UnityEngine;
 using UnityEngine.UI;
+
+using Service;
 
 namespace Puzzle.Game
 {
@@ -13,9 +16,11 @@ namespace Puzzle.Game
         [SerializeField] private CanvasGroup canvasGroupOfConfirmButton;
         [SerializeField] private Animator greenFlashAnimator;
 
-        [SerializeField] float timeToJoinImagePieces;
-        [SerializeField] float timeToFade;
-        [SerializeField] float timeToWaitForConfirmButton;
+        [SerializeField] private float timeToJoinImagePieces;
+        [SerializeField] private float timeToFade;
+        [SerializeField] private float timeToWaitForConfirmButton;
+
+        public Action ConfirmButtonBeganToAppear;
 
         private void Start()
         {
@@ -47,6 +52,8 @@ namespace Puzzle.Game
         IEnumerator FadeIn_ConfirmButton()  
         {
             yield return new WaitForSeconds(2);
+
+            ConfirmButtonBeganToAppear.SafeInvoke();
 
             float currentTime = 0;
 

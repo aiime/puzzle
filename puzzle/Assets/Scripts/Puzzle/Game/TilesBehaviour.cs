@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections;
-
 using UnityEngine;
 using UnityEngine.UI;
 using Service;
 
 namespace Puzzle.Game
 {
-    [AddComponentMenu("Puzzle/Game/Tiles Controller")]
-    public class TilesController : MonoBehaviour
+    [AddComponentMenu("Puzzle/Game/Tiles Behaviour")]
+    public class TilesBehaviour : MonoBehaviour
     {
         [SerializeField] private Image[] tileRenderers;
         [SerializeField] private CanvasGroup selectionPanel;
@@ -20,7 +18,7 @@ namespace Puzzle.Game
 
         private Image firstTileRenderer = null;
         private Image secondTileRenderer = null;
-        private TileClickDetector selectedTile;
+        private TileBehaviour selectedTile;
         private Sprite[] victorySequence;
         private Coroutine lightBorderFadeInCoroutine;
 
@@ -45,14 +43,14 @@ namespace Puzzle.Game
             EnteringGamePanel.SafeInvoke();
         }
 
-        public void OnTileClicked(TileClickDetector tileClicked)
+        public void OnTileClicked(TileBehaviour tileClicked)
         {
             if (FirstTileNotSelected())
             {
                 firstTileRenderer = tileClicked.GetComponent<Image>();
 
                 selectedTile = tileClicked;
-                lightBorderFadeInCoroutine = 
+                lightBorderFadeInCoroutine =
                     StartCoroutine(FadeCoroutines.FadeIn_DONT_BLOCK_RAYCAST(tileClicked.lightBorder, 0.1f));
             }
             else

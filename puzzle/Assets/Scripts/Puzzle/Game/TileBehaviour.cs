@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Puzzle.Game
 {
-    [AddComponentMenu("Puzzle/Game/Tile Click Detector")]
-    public class TileClickDetector : MonoBehaviour, IClickable
+    [AddComponentMenu("Puzzle/Game/Tile Behaviour")]
+    public class TileBehaviour : MonoBehaviour, IClickable
     {        
-        [SerializeField] private TilesController tilesController;
+        [SerializeField] private TilesBehaviour tilesBehaviour;
         public CanvasGroup lightBorder;
 
         public void OnClick()
         {
-            tilesController.OnTileClicked(this);
+            tilesBehaviour.OnTileClicked(this);
         }
     }
 }

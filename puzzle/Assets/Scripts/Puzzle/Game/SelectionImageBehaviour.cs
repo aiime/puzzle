@@ -2,15 +2,15 @@
 
 namespace Puzzle.Game
 {
-    [AddComponentMenu("Puzzle/Game/Selection Item Behaviour")]
-    public class SelectionItemBehaviour : MonoBehaviour, IClickable
+    [AddComponentMenu("Puzzle/Game/Selection Image Behaviour")]
+    public class SelectionImageBehaviour : MonoBehaviour, IClickable
     {
-        [SerializeField] private TilesController tilesController;
+        [SerializeField] private TilesBehaviour tilesBehaviour;
         [SerializeField] private Sprite[] imageSlices;
 
         public void OnClick()
         {
-            tilesController.PrepareGameField(imageSlices);
+            tilesBehaviour.PrepareGameField(imageSlices);
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
-
 using UnityEngine;
 using UnityEngine.UI;
-
 using Service;
 
 namespace Puzzle.Game
@@ -11,8 +9,8 @@ namespace Puzzle.Game
     [AddComponentMenu("Puzzle/Game/Victory Behaviour")]
     public class VictoryBehaviour : MonoBehaviour
     {
-        [SerializeField] private TilesController tilesController;
-        [SerializeField] private StretchyGridLayoutGroup tilesStretchyGrid;
+        [SerializeField] private TilesBehaviour tilesBehaviour;
+        [SerializeField] private StretchyGridLayoutGroup tilesGrid;
         [SerializeField] private CanvasGroup confirmButton;
         [SerializeField] private Animator greenFlashAnimator;
 
@@ -20,11 +18,9 @@ namespace Puzzle.Game
         [SerializeField] private float timeToFade;
         [SerializeField] private float timeToWaitForConfirmButton;
 
-        public Action ConfirmButtonBeganToAppear;
-
         private void Start()
         {
-            tilesController.VictoryHappened += () =>
+            tilesBehaviour.VictoryHappened += () =>
             {
                 StartCoroutine(JoinImagePieces());
                 StartCoroutine(FadeIn_ConfirmButton());
@@ -35,13 +31,13 @@ namespace Puzzle.Game
         {
             float currentTime = 0;
 
-            while (tilesStretchyGrid.spacing.x != 0)
+            while (tilesGrid.spacing.x != 0)
             {
                 currentTime += Time.deltaTime;
 
                 float newX = Mathf.Lerp(5, 0, currentTime/ timeToJoinImagePieces);
                 float newY = Mathf.Lerp(5, 0, currentTime / timeToJoinImagePieces);
-                tilesStretchyGrid.spacing = new Vector2(newX, newY);
+                tilesGrid.spacing = new Vector2(newX, newY);
 
                 yield return null;
             }
@@ -52,8 +48,6 @@ namespace Puzzle.Game
         IEnumerator FadeIn_ConfirmButton()  
         {
             yield return new WaitForSeconds(2); // Пауза перед проявлением кнопки подтверждения.
-
-            ConfirmButtonBeganToAppear.SafeInvoke();
             StartCoroutine(FadeCoroutines.FadeIn(confirmButton, timeToFade));
         }
     }

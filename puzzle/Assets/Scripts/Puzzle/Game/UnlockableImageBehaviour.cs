@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Puzzle.Game
 {
@@ -9,6 +9,7 @@ namespace Puzzle.Game
         [SerializeField] private CoinsModel coinsModel;
         [SerializeField] private CanvasGroup imageBlocker;
         [SerializeField] private CanvasGroup unlockButton;
+        [SerializeField] private Button chooseImageButton;
         [SerializeField] private float fadeTime;
 
         public void OnLockClick()
@@ -16,6 +17,7 @@ namespace Puzzle.Game
             if (coinsModel.Coins >= 2)
             {
                 coinsModel.Coins -= 2;
+                chooseImageButton.interactable = true;
                 StartCoroutine(FadeCoroutines.FadeOut(imageBlocker, fadeTime));
                 StartCoroutine(FadeCoroutines.FadeOut(unlockButton, fadeTime));
             }

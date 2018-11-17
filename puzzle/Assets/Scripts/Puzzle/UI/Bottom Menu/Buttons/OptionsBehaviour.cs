@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Puzzle.UI.BottomMenu
+namespace Puzzle.UI.BottomMenu.Buttons
 {
-    [AddComponentMenu("Puzzle/UI/Bottom Menu/Options Button Controller")]
-    public class OptionsButtonController : MonoBehaviour, IClickable
+    [AddComponentMenu("Puzzle/UI/Bottom Menu/Buttons/Options")]
+    public class OptionsBehaviour : MonoBehaviour, IClickable
     {
         [SerializeField] private CanvasGroup optionsPanel;
         [SerializeField] private float fadeTime;

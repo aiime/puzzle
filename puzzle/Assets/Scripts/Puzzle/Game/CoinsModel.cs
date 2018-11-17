@@ -7,7 +7,7 @@ namespace Puzzle.Game
     [AddComponentMenu("Puzzle/Game/CoinsModel")]
     public class CoinsModel : MonoBehaviour
     {
-        [SerializeField] TilesController tilesController;
+        [SerializeField] TilesBehaviour tilesBehaviour;
         public Action<int> CoinsAdded;
         public Action<int> CoinsRemoved;
 
@@ -53,7 +53,7 @@ namespace Puzzle.Game
 
         private void Start()
         {
-            tilesController.VictoryHappened += () => Coins += 1;
+            tilesBehaviour.VictoryHappened += () => Coins += 1;
         }
     }
 }

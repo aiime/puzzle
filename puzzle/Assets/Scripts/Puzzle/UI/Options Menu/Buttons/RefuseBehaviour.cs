@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Puzzle.UI.OptionsMenu
+namespace Puzzle.UI.OptionsMenu.Buttons
 {
-    [AddComponentMenu("Puzzle/UI/Options Menu/Confirm Button Controller")]
-    public class ConfirmButtonController : MonoBehaviour, IClickable
+    [AddComponentMenu("Puzzle/UI/Options Menu/Buttons/Refuse")]
+    public class RefuseBehaviour : MonoBehaviour, IClickable
     {
         [SerializeField] private CanvasGroup optionsPanel;
         [SerializeField] private float fadeTime;

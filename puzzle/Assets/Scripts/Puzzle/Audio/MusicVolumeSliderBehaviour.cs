@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 namespace Puzzle.Audio
 {
-    [AddComponentMenu("Puzzle/Audio/Music Volume Slider Controller")]
-    public class MusicVolumeSliderController : MonoBehaviour
+    [AddComponentMenu("Puzzle/Audio/Music Volume Slider")]
+    public class MusicVolumeSliderBehaviour : MonoBehaviour
     {
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private Slider slider;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Puzzle.Game;
+using Puzzle.UI.BottomMenu.Buttons;
 
 namespace Puzzle.UI.BottomMenu
 {
@@ -11,21 +12,21 @@ namespace Puzzle.UI.BottomMenu
     [AddComponentMenu("Puzzle/UI/Bottom Menu/Exit Button Switch")]
     public class ExitButtonSwitch : MonoBehaviour
     {
-        [SerializeField] private TilesController tilesController;
+        [SerializeField] private TilesBehaviour tilesBehaviour;
         [SerializeField] private CanvasGroup exitToSystemButton;
         [SerializeField] private CanvasGroup exitToSelectionButton;
-        [SerializeField] private ExitToSelectionButtonController exitToSelectionButtonController;
+        [SerializeField] private ExitToSelectionBehaviour exitToSelectionButtonBehaviour;
         [SerializeField] private float fadeTime;
 
         private void Start()
         {
-            tilesController.EnteringGamePanel += () =>
+            tilesBehaviour.EnteringGamePanel += () =>
             {
                 StartCoroutine(FadeCoroutines.FadeIn(exitToSelectionButton, fadeTime));
                 StartCoroutine(FadeCoroutines.FadeOut(exitToSystemButton, fadeTime));
             };
 
-            exitToSelectionButtonController.ExitingGamePanel += () =>
+            exitToSelectionButtonBehaviour.ExitingGamePanel += () =>
             {
                 StartCoroutine(FadeCoroutines.FadeIn(exitToSystemButton, fadeTime));
                 StartCoroutine(FadeCoroutines.FadeOut(exitToSelectionButton, fadeTime));

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Puzzle.UI.BottomMenu
+namespace Puzzle.UI.BottomMenu.Buttons
 {
-    [AddComponentMenu("Puzzle/UI/Bottom Menu/Hide Button Controller")]
-    public class HideButtonController : MonoBehaviour, IClickable
+    [AddComponentMenu("Puzzle/UI/Bottom Menu/Buttons/Hide")]
+    public class HideBehaviour : MonoBehaviour, IClickable
     {
         [SerializeField] private Animator bottomMenuAnimator;
-        [SerializeField] private Image arrowHolder;
+        [SerializeField] private Image arrowRenderer;
         [SerializeField] private Sprite rightArrow;
         [SerializeField] private Sprite leftArrow;
 
@@ -40,12 +40,12 @@ namespace Puzzle.UI.BottomMenu
         // Вызываются из анимаций.
         public void OnOpenAnimationEnd()
         {
-            arrowHolder.sprite = rightArrow;
+            arrowRenderer.sprite = rightArrow;
         }
 
         public void OnHideAnimationEnd()
         {
-            arrowHolder.sprite = leftArrow;
+            arrowRenderer.sprite = leftArrow;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Puzzle.UI.BottomMenu.Buttons;
 
 namespace Puzzle.UI.BottomMenu
 {
@@ -15,16 +16,16 @@ namespace Puzzle.UI.BottomMenu
     public class AnimationEventsFromAnimatorToControllerOfHideButton : MonoBehaviour
     // Не смог придумать более короткое название -______-
     {
-        [SerializeField] private HideButtonController hideButtonController;
+        [SerializeField] private HideBehaviour hideButtonBehaviour;
 
         public void OnOpenAnimationEnd()
         {
-            hideButtonController.OnOpenAnimationEnd();
+            hideButtonBehaviour.OnOpenAnimationEnd();
         }
 
         public void OnHideAnimationEnd()
         {
-            hideButtonController.OnHideAnimationEnd();
+            hideButtonBehaviour.OnHideAnimationEnd();
         }
     }
 }

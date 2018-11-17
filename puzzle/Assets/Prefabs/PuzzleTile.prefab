@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 224804380807468434}
   - component: {fileID: 222923033387983714}
   - component: {fileID: 114346917901128566}
-  - component: {fileID: 114553709741616862}
   - component: {fileID: 114047800857307396}
+  - component: {fileID: 114684923384697186}
   m_Layer: 5
   m_Name: PuzzleTile
   m_TagString: PuzzleTile
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114553709741616862}
+      - m_Target: {fileID: 114684923384697186}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114553709741616862
+--- !u!114 &114684923384697186
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,10 +129,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1051450579544204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0c7530887a80764cb7e7e4af80a1354, type: 3}
+  m_Script: {fileID: 11500000, guid: db53c1a8708b34444bd5629fb9ab8167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilesController: {fileID: 0}
+  tilesBehaviour: {fileID: 0}
   lightBorder: {fileID: 0}
 --- !u!222 &222923033387983714
 CanvasRenderer:

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections;
-
 using UnityEngine;
-
 using Service;
 
-namespace Puzzle.UI.BottomMenu
+namespace Puzzle.UI.BottomMenu.Buttons
 {
-    [AddComponentMenu("Puzzle/UI/Bottom Menu/Exit To Selection Button Controller")]
-    public class ExitToSelectionButtonController : MonoBehaviour, IClickable
+    [AddComponentMenu("Puzzle/UI/Bottom Menu/Buttons/Exit To Selection")]
+    public class ExitToSelectionBehaviour : MonoBehaviour, IClickable
     {
         [SerializeField] private CanvasGroup gamePanel;
         [SerializeField] private CanvasGroup selectionPanel;

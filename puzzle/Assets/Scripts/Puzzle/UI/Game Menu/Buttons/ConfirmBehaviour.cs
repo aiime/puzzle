@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Puzzle.UI.GameMenu
+namespace Puzzle.UI.GameMenu.Buttons
 {
-    [AddComponentMenu("Puzzle/UI/Game Menu/Confirm Button Controller")]
-    public class ConfirmButtonController : MonoBehaviour, IClickable
+    [AddComponentMenu("Puzzle/UI/Game Menu/Buttons/Confirm")]
+    public class ConfirmBehaviour : MonoBehaviour, IClickable
     {
         [SerializeField] private CanvasGroup gamePanel;
         [SerializeField] private CanvasGroup selectionPanel;

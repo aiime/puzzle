@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224392813379502548}
   - component: {fileID: 222858245871773824}
   - component: {fileID: 114992264413013548}
-  - component: {fileID: 114425529517937502}
+  - component: {fileID: 114283694505101614}
   m_Layer: 5
   m_Name: SelectionItem
   m_TagString: Untagged
@@ -64,6 +64,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114283694505101614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541466071635818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13ed955983e21547ad2058b6663dcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilesBehaviour: {fileID: 0}
+  imageSlices: []
 --- !u!114 &114384219870146782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,19 +104,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114425529517937502
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1541466071635818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d401b9015ba6e479bed0f7199c7c89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilesController: {fileID: 0}
-  imageSlices: []
 --- !u!114 &114613924122257292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114425529517937502}
+      - m_Target: {fileID: 114283694505101614}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:

@@ -4,12 +4,12 @@ using UnityEngine.EventSystems;
 namespace Puzzle.Game
 {
     [AddComponentMenu("Puzzle/Game/Tile Click Detector")]
-    public class TileClickDetector : MonoBehaviour, IPointerClickHandler
+    public class TileClickDetector : MonoBehaviour, IClickable
     {        
         [SerializeField] private TilesController tilesController;
-        public CanvasGroup canvasGroupOfLightBorder;
+        public CanvasGroup lightBorder;
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnClick()
         {
             tilesController.OnTileClicked(this);
         }

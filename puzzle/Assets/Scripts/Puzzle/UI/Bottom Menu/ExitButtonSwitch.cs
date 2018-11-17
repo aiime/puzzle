@@ -1,7 +1,4 @@
-﻿using System.Collections;
-
-using UnityEngine;
-
+﻿using UnityEngine;
 using Puzzle.Game;
 
 namespace Puzzle.UI.BottomMenu
@@ -15,80 +12,24 @@ namespace Puzzle.UI.BottomMenu
     public class ExitButtonSwitch : MonoBehaviour
     {
         [SerializeField] private TilesController tilesController;
-        [SerializeField] private CanvasGroup canvasGroupOfExitToSystemButton;
-        [SerializeField] private CanvasGroup canvasGroupOfExitToSelectionButton;
+        [SerializeField] private CanvasGroup exitToSystemButton;
+        [SerializeField] private CanvasGroup exitToSelectionButton;
         [SerializeField] private ExitToSelectionButtonController exitToSelectionButtonController;
-        [SerializeField] private float timeToFade;
+        [SerializeField] private float fadeTime;
 
         private void Start()
         {
             tilesController.EnteringGamePanel += () =>
             {
-                StartCoroutine(FadeIn_ExitToSelectionButton());
-                StartCoroutine(FadeOut_ExitToSystemButton());
+                StartCoroutine(FadeCoroutines.FadeIn(exitToSelectionButton, fadeTime));
+                StartCoroutine(FadeCoroutines.FadeOut(exitToSystemButton, fadeTime));
             };
 
             exitToSelectionButtonController.ExitingGamePanel += () =>
             {
-                StartCoroutine(FadeIn_ExitToSystemButton());
-                StartCoroutine(FadeOut_ExitToSelectionButton());
+                StartCoroutine(FadeCoroutines.FadeIn(exitToSystemButton, fadeTime));
+                StartCoroutine(FadeCoroutines.FadeOut(exitToSelectionButton, fadeTime));
             };
-        }
-
-        private IEnumerator FadeIn_ExitToSelectionButton()
-        {
-            float currentTime = 0;
-
-            while (canvasGroupOfExitToSelectionButton.alpha != 1)
-            {
-                currentTime += Time.deltaTime;
-                canvasGroupOfExitToSelectionButton.alpha = Mathf.Lerp(0, 1, currentTime / timeToFade);
-                yield return null;
-            }
-
-            canvasGroupOfExitToSelectionButton.blocksRaycasts = true;
-        }
-
-        private IEnumerator FadeOut_ExitToSystemButton()
-        {
-            canvasGroupOfExitToSystemButton.blocksRaycasts = false;
-
-            float currentTime = 0;
-
-            while (canvasGroupOfExitToSystemButton.alpha != 0)
-            {
-                currentTime += Time.deltaTime;
-                canvasGroupOfExitToSystemButton.alpha = Mathf.Lerp(1, 0, currentTime / timeToFade);
-                yield return null;
-            }
-        }
-
-        private IEnumerator FadeIn_ExitToSystemButton()
-        {
-            float currentTime = 0;
-
-            while (canvasGroupOfExitToSystemButton.alpha != 1)
-            {
-                currentTime += Time.deltaTime;
-                canvasGroupOfExitToSystemButton.alpha = Mathf.Lerp(0, 1, currentTime / timeToFade);
-                yield return null;
-            }
-
-            canvasGroupOfExitToSystemButton.blocksRaycasts = true;
-        }
-
-        private IEnumerator FadeOut_ExitToSelectionButton()
-        {
-            canvasGroupOfExitToSelectionButton.blocksRaycasts = false;
-
-            float currentTime = 0;
-
-            while (canvasGroupOfExitToSelectionButton.alpha != 0)
-            {
-                currentTime += Time.deltaTime;
-                canvasGroupOfExitToSelectionButton.alpha = Mathf.Lerp(1, 0, currentTime / timeToFade);
-                yield return null;
-            }
         }
     }
 }

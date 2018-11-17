@@ -13,7 +13,7 @@ namespace Puzzle.Game
     {
         [SerializeField] private TilesController tilesController;
         [SerializeField] private StretchyGridLayoutGroup tilesStretchyGrid;
-        [SerializeField] private CanvasGroup canvasGroupOfConfirmButton;
+        [SerializeField] private CanvasGroup confirmButton;
         [SerializeField] private Animator greenFlashAnimator;
 
         [SerializeField] private float timeToJoinImagePieces;
@@ -51,22 +51,10 @@ namespace Puzzle.Game
 
         IEnumerator FadeIn_ConfirmButton()  
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(2); // Пауза перед проявлением кнопки подтверждения.
 
             ConfirmButtonBeganToAppear.SafeInvoke();
-
-            float currentTime = 0;
-
-            canvasGroupOfConfirmButton.blocksRaycasts = true;
-
-            while (canvasGroupOfConfirmButton.alpha != 1)
-            {
-                currentTime += Time.deltaTime;
-
-                canvasGroupOfConfirmButton.alpha = Mathf.Lerp(0, 1, currentTime / timeToFade);
-        
-                yield return null;
-            }
+            StartCoroutine(FadeCoroutines.FadeIn(confirmButton, timeToFade));
         }
     }
 }

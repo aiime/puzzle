@@ -7,34 +7,18 @@ namespace Puzzle.Game
     public class UnlockableImageBehaviour : MonoBehaviour
     {
         [SerializeField] private CoinsModel coinsModel;
-        [SerializeField] private CanvasGroup canvasGroupOf_imageBlocker;
-        [SerializeField] private CanvasGroup canvasGroupOf_unlockButton;
-        [SerializeField] private float timeToFade;
+        [SerializeField] private CanvasGroup imageBlocker;
+        [SerializeField] private CanvasGroup unlockButton;
+        [SerializeField] private float fadeTime;
 
         public void OnLockClick()
         {
-            if (coinsModel.GetCoins() >= 2)
+            if (coinsModel.Coins >= 2)
             {
-                coinsModel.RemoveCoins(2);
-                StartCoroutine(RemoveLock());
+                coinsModel.Coins -= 2;
+                StartCoroutine(FadeCoroutines.FadeOut(imageBlocker, fadeTime));
+                StartCoroutine(FadeCoroutines.FadeOut(unlockButton, fadeTime));
             }
-        }
-
-        IEnumerator RemoveLock()
-        {
-            float currentTime = 0;
-
-            while (canvasGroupOf_imageBlocker.alpha > 0)
-            {
-                canvasGroupOf_imageBlocker.alpha = Mathf.Lerp(1, 0, currentTime / timeToFade);
-                canvasGroupOf_unlockButton.alpha = Mathf.Lerp(1, 0, currentTime / timeToFade);
-
-                currentTime += Time.deltaTime;
-
-                yield return null;
-            }
-
-            canvasGroupOf_imageBlocker.blocksRaycasts = false;
         }
     }
 }

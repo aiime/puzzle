@@ -8,51 +8,52 @@ namespace Puzzle.Game
     public class CoinsModel : MonoBehaviour
     {
         [SerializeField] TilesController tilesController;
-        public Action<int> CoinsChanged;
+        public Action<int> CoinsAdded;
+        public Action<int> CoinsRemoved;
 
         private int coins;
+        public int Coins
+        {
+            get
+            {
+                return coins;
+            }
+
+            set
+            {
+                if (value > coins)
+                {
+                    int addedAmount = value - coins;
+                    coins = value;
+                    CoinsAdded.SafeInvoke(addedAmount);
+                }
+
+                if (value < coins)
+                {
+                    int removedAmount = coins - value;
+                    coins = value;
+                    CoinsRemoved.SafeInvoke(removedAmount);
+                }
+
+                if (value < 0)
+                {
+                    int removedAmount = coins;
+                    coins = 0;
+                    CoinsRemoved.SafeInvoke(removedAmount);
+                }
+
+                if (value > 999)
+                {
+                    int addedAmount = 999 - coins;
+                    coins = 999;
+                    CoinsRemoved.SafeInvoke(addedAmount);
+                } 
+            }
+        }
 
         private void Start()
         {
-            tilesController.VictoryHappened += () => AddCoins(1);
-        }
-
-        public void AddCoins(int amount)
-        {
-            int newValue = coins + amount;
-
-            if (newValue < 1000)
-            {
-                coins = newValue;
-            }
-            else
-            {
-                coins = 1000;
-            }
-
-            CoinsChanged.SafeInvoke(coins);
-        }
-
-        public void RemoveCoins(int amount)
-        {
-            int newValue = coins - amount;
-
-            if (newValue >= 0)
-            {
-                coins = newValue;
-            }
-            else
-            {
-                coins = 0;
-            }
-
-            CoinsChanged.SafeInvoke(coins);
-        }
-
-        public int GetCoins()
-        {
-            return coins;
+            tilesController.VictoryHappened += () => Coins += 1;
         }
     }
 }
-

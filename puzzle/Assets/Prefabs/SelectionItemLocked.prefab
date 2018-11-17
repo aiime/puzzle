@@ -221,7 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d401b9015ba6e479bed0f7199c7c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectionItemButton: {fileID: 114217556875434254}
   tilesController: {fileID: 0}
   imageSlices: []
 --- !u!114 &114475347332527532
@@ -236,9 +235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsModel: {fileID: 0}
-  canvasGroupOf_imageBlocker: {fileID: 225393681571704182}
-  canvasGroupOf_unlockButton: {fileID: 225159862649337982}
-  timeToFade: 0.3
+  imageBlocker: {fileID: 225393681571704182}
+  unlockButton: {fileID: 225159862649337982}
+  fadeTime: 0.3
 --- !u!114 &114591095176829440
 MonoBehaviour:
   m_ObjectHideFlags: 1

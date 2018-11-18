@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 2c0aded4b7450924bb61d210cae5e59f
+guid: d56a427a825fdba47ab18c747d345227
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hello_0
-    21300002: hello_1
-    21300004: hello_2
-    21300006: hello_3
-    21300008: hello_4
-    21300010: hello_5
-    21300012: hello_6
-    21300014: hello_7
-    21300016: hello_8
-    21300018: hello_9
+    21300000: magnolia_and_erect_rock_0
+    21300002: magnolia_and_erect_rock_1
+    21300004: magnolia_and_erect_rock_2
+    21300006: magnolia_and_erect_rock_3
+    21300008: magnolia_and_erect_rock_4
+    21300010: magnolia_and_erect_rock_5
+    21300012: magnolia_and_erect_rock_6
+    21300014: magnolia_and_erect_rock_7
+    21300016: magnolia_and_erect_rock_8
+    21300018: magnolia_and_erect_rock_9
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hello_0
+      name: magnolia_and_erect_rock_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
-        width: 80
-        height: 80
+        y: 682.6666
+        width: 341.33334
+        height: 341.33334
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,19 +163,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb480be3745d9bb4996bb6653b2a0ac8
+      spriteID: 816adb2315188734bb33b841c591117b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hello_1
+      name: magnolia_and_erect_rock_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 160
-        width: 80
-        height: 80
+        x: 341
+        y: 682.6666
+        width: 341.33334
+        height: 341.33334
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,19 +183,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d50b477ebc3705d408c2deeba49b189c
+      spriteID: 405ea5f632a69a543a0c8efe86feb16e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hello_2
+      name: magnolia_and_erect_rock_2
       rect:
         serializedVersion: 2
-        x: 160
-        y: 160
-        width: 80
-        height: 80
+        x: 682
+        y: 682.6666
+        width: 341.33334
+        height: 341.33334
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,19 +203,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8e2575e33f8bb54193d916b31352e8e
+      spriteID: 629f2374100970a41a874ee84ed89d86
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hello_3
+      name: magnolia_and_erect_rock_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
-        width: 80
-        height: 80
+        y: 341.66666
+        width: 341.33334
+        height: 341.33334
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,19 +223,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04236de5bd73af849be3850bb7120747
+      spriteID: c926bd53ad0fe83478d7b5ea01b43d78
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hello_4
+      name: magnolia_and_erect_rock_4
       rect:
         serializedVersion: 2
-        x: 80
-        y: 80
-        width: 80
-        height: 80
+        x: 341
+        y: 341.66666
+        width: 341.33334
+        height: 341.33334
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,19 +243,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09d0fb4f76c0a0d4c81d6c288228d074
+      spriteID: 5aa7e4286d4e93e4e9a175e3f2f8e16f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hello_5
+      name: magnolia_and_erect_rock_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 80
-        width: 80
-        height: 80
+        x: 682
+        y: 341.66666
+        width: 341.33334
+        height: 341.33334
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,19 +263,79 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c3744b0f4b80c342b51402f8ba0adeb
+      spriteID: c1fb0ec5551976a4eb0c427a312c829c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hello_6
+      name: magnolia_and_erect_rock_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.6666565
+        width: 341.33334
+        height: 341.33334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4abace91905473b459dfe710f1648aff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnolia_and_erect_rock_7
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 0.6666565
+        width: 341.33334
+        height: 341.33334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d240a93e990b6844db6f27d425b42c5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnolia_and_erect_rock_8
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 0.6666565
+        width: 341.33334
+        height: 341.33334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff05e5b833b2eb24db73e0099dee79b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnolia_and_erect_rock_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 80
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,67 +343,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8512fd408e4195b47b237cf2094bce2a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hello_7
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 372accc85859c994fad1f113b1d5580d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hello_8
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afbdf382ede5d9149b4043d6a0f86e17
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hello_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 240
-        height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc89f3809ded7a14385d2fd84bd7f72f
+      spriteID: 29484841b8c42994c85e50547c7140d3
       vertices: []
       indices: 
       edges: []
@@ -351,7 +351,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5afdd10510ec607488b524b72a6d8b33
+    spriteID: 2ea54ea83416feb4e8dcc443aee70091
     vertices: []
     indices: 
     edges: []

@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 89530f84c6c5abd45b329ea9679ae547
+guid: 69e7d3bdcc5a5cb408af8965509679ee
 TextureImporter:
   fileIDToRecycleName:
-    21300000: dawkins_0
-    21300002: dawkins_1
-    21300004: dawkins_2
-    21300006: dawkins_3
-    21300008: dawkins_4
-    21300010: dawkins_5
-    21300012: dawkins_6
-    21300014: dawkins_7
-    21300016: dawkins_8
-    21300018: dawkins_9
+    21300000: the_day_after_0
+    21300002: the_day_after_1
+    21300004: the_day_after_2
+    21300006: the_day_after_3
+    21300008: the_day_after_4
+    21300010: the_day_after_5
+    21300012: the_day_after_6
+    21300014: the_day_after_7
+    21300016: the_day_after_8
+    21300018: the_day_after_9
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -149,193 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dawkins_0
+      name: the_day_after_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 160
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7bbea4a08c66c74280154a4357be5f8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dawkins_1
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 160
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be5046977213b6845a73810e715eeb1e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dawkins_2
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 160
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34c91bab68baf604fa17b958ce878349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dawkins_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 80
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b44a862f513828f448a1e7c4ad77e0ec
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dawkins_4
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 80
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8d531004a458a64c8dfd603666108bf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dawkins_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 80
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf1a5d063d590e74190ede23c8f90d06
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dawkins_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 582415879469e8542a010bd16cbf7c89
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dawkins_7
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3573da5c3c41ef2479a68ec2ea396a1e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dawkins_8
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 253e4b1b476db2846b52103b2ca6557c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dawkins_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 240
-        height: 240
+        y: 814.6666
+        width: 407.33334
+        height: 407.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,7 +163,187 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe42a6cd3d7a04a4d8456415e571a994
+      spriteID: 8b25fd124d2f35e4aba0426926a06ff3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the_day_after_1
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 814.6666
+        width: 407.33334
+        height: 407.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35c07e78cfd91a04db6e3c297f00fb49
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the_day_after_2
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 814.6666
+        width: 407.33334
+        height: 407.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86078437b5300d42bbe0df88022b0d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the_day_after_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 407.66666
+        width: 407.33334
+        height: 407.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e655ce0f49494489755e9e7ce32e62
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the_day_after_4
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 407.66666
+        width: 407.33334
+        height: 407.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eccaa94e66625741a04ea3abd632204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the_day_after_5
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 407.66666
+        width: 407.33334
+        height: 407.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 055de084d6be5c94ba30585ab1925da0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the_day_after_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.6666565
+        width: 407.33334
+        height: 407.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c36118b8d6af7404cad450f0a3f66664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the_day_after_7
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 0.6666565
+        width: 407.33334
+        height: 407.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33af3b3ee25f654c95ba6b63fdaa507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the_day_after_8
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 0.6666565
+        width: 407.33334
+        height: 407.33334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75af644c370c6a649aa3fafb3f9fadf9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the_day_after_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1222
+        height: 1222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6114462dc99164747bb91f738ef843b7
       vertices: []
       indices: 
       edges: []
@@ -351,7 +351,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a1e431f33524c9846bb1feaa57821f16
+    spriteID: 2851f4fee4e62704fb72324caa5b9942
     vertices: []
     indices: 
     edges: []
